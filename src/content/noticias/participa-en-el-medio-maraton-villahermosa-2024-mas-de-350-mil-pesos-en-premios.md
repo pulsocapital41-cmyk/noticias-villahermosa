@@ -1,0 +1,12 @@
+---
+title: "Participa en el Medio Maratón Villahermosa 2024: más de 350 mil pesos en premios."
+excerpt: "nEl Medio Maratón de Villahermosa ha fijado su fecha para el domingo 23 de junio.nnnnCon la participación de mil corredores que se enfrentarán en las ..."
+category: "Política"
+image: "/uploads/427964876_326205007041184_6943269112588550334_n.jpg"
+author: "Redacción Noticias Villahermosa"
+pubDate: 2024-02-13
+featured: false
+breaking: false
+---
+
+n<p>El Medio Maratón de Villahermosa ha fijado su fecha para el <strong>domingo 23 de junio</strong>.</p>nnnn<p>Con la participación de mil corredores que se enfrentarán en las principales calles de la ciudad en busca de los primeros lugares y una parte de la bolsa económica de <strong>359 mil pesos en premios</strong>.</p>nnnn<p></p>nnnn<img src="/uploads/209233-1.jpg" alt="" class="wp-image-579"/>nnnn<p></p>nnnn<p>Durante una conferencia de prensa, las autoridades municipales de Centro, junto a Claudia Vélez Lanz, directora del Instituto Municipal de la Juventud y el Deporte de Centro (IMJUDEC), dieron los detalles de este evento deportivo.</p>nnnn<p>Con un enfoque en la promoción del ejercicio físico y el deporte en la comunidad, las autoridades municipales destacaron el impacto positivo que tiene el Medio Maratón de Villahermosa en la salud y el bienestar de los ciudadanos.</p>nnnn<p></p>nnnn<img src="/uploads/428045327_385413544123008_1562929324115516636_n-1024x781.jpg" alt="" class="wp-image-580"/>nnnn<p></p>nnnn<p>Por su parte, Claudia Vélez Lanz resaltó el compromiso del IMJUDEC en la organización de eventos deportivos de calidad, que promuevan la participación y el espíritu competitivo entre los habitantes de la ciudad.</p>nnnn<p>Con una atractiva bolsa de premios respaldada por las autoridades municipales, el Medio Maratón de Villahermosa es una oportunidad para que los amantes del running desafíen sus límites y demuestren su habilidad en un ambiente de competencia.</p>nnnn<p></p>nnnn<img src="/uploads/37fa5aea117a4b0a97b20587b50ffcb0-1024x634.jpg" alt="" class="wp-image-581"/>nnnn<p></p>nnnn<p>Los interesados en participar en este evento están invitados a registrarse y formar parte de una jornada deportiva que promete ser una experiencia enriquecedora para todos los involucrados.</p>nnnn<p>Para más información y para acceder a la <strong>convocatoria completa</strong>, puedes visitar el siguiente enlace: https://www.villahermosa.gob.mx/wp-content/uploads/2024/02/Convocatoria_MMV_2024.pdf</p>n

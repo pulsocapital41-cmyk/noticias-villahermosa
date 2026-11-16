@@ -1,0 +1,12 @@
+---
+title: "¡Explora tu talento en los talleres de la Escuela de Iniciación Artística \"Casa de Artes José Gorostiza\"!"
+excerpt: "nnnnnInscripciones abiertas hasta el 1 de marzo.nnnnLa Escuela de Iniciación Artística \"Casa de Artes José Gorostiza\" te invita a descubrir nuevas hab..."
+category: "Política"
+image: "/uploads/IMG_3006.jpeg"
+author: "Redacción Noticias Villahermosa"
+pubDate: 2024-02-22
+featured: false
+breaking: false
+---
+
+n<p></p>nnnn<p>Inscripciones abiertas hasta el 1 de marzo.</p>nnnn<p>La Escuela de Iniciación Artística "<strong>Casa de Artes José Gorostiza</strong>" te invita a descubrir nuevas habilidades y potenciar tu creatividad. Con una variada <strong>oferta de talleres</strong> que incluyen música, artes plásticas, danza, lengua y artes escénicas, esta institución se destaca como un<strong> espacio de aprendizaje </strong>y expresión durante el periodo de <strong>febrero a julio</strong> de 2024.</p>nnnn<p></p>nnnnn<img src="/uploads/IMG_3007.jpeg" alt="" class="wp-image-682"/>nnnnn<p></p>nnnn<p>La convocatoria ya está abierta, brindando una excelente oportunidad para quienes deseen sumergirse en el mundo del arte. Para <strong>inscribirte</strong>, solo necesitas seguir unos simples pasos y consultar los horarios y rangos de edades disponibles en las imágenes adjuntas.</p>nnnn<p>Completa tu ficha de registro de aspirante aquí: <a href="https://somosceiba.tabasco.gob.mx/aspirante">https://somosceiba.tabasco.gob.mx/aspirante</a>.</p>nnnn<p></p>nnnnn<img src="/uploads/IMG_3008.jpeg" alt="" class="wp-image-683"/>nnnnn<p><br>Recuerda que el <strong>plazo máximo</strong> para inscripciones es el <strong>01 de marzo</strong>.</p>nnnn<p>Los talleres se ofrecen en <strong>modalidad presencial</strong>, con un <strong>cupo limitado</strong> y están dirigidos a personas de nivel principiante. Si deseas obtener más información, no dudes en comunicarte de <strong>lunes a viernes</strong> al número <strong>9933127947</strong> extensión 139, en horario de <strong>13:00 a 19:00 hrs</strong>.</p>nnnn<p>¡Aprovecha esta oportunidad para aprender, crear y crecer en la Escuela de Iniciación Artística "Casa de Artes José Gorostiza"!</p>nnnn<p>A continuación, te compartimos la <strong>convocatoria completa</strong> para todos sus talleres artísticos:</p>nnnnn<img src="/uploads/IMG_3003-820x1024.jpeg" alt="" class="wp-image-681"/>nnnn<img src="/uploads/IMG_3004-820x1024.jpeg" alt="" class="wp-image-680"/>nnnn<img src="/uploads/IMG_3005-820x1024.jpeg" alt="" class="wp-image-679"/>nnnnn<p></p>nnnn<p></p>nnnn<p></p>n

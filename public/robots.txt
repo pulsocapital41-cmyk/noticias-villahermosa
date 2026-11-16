@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://noticiasvhsa.com/sitemap.xml
+Sitemap: https://noticiasvhsa.com/sitemap-index.xml

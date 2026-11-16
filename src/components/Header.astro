@@ -1,0 +1,526 @@
+---
+interface Props {
+  currentCategory?: string;
+}
+
+const { currentCategory = 'Portada' } = Astro.props;
+
+const categories = [
+  { name: 'Portada', href: '/' },
+  { name: 'Local', href: '/categoria/local' },
+  { name: 'Seguridad', href: '/categoria/seguridad' },
+  { name: 'Política', href: '/categoria/politica' },
+  { name: 'Economía', href: '/categoria/economia' },
+  { name: 'Deportes', href: '/categoria/deportes' },
+  { name: 'Opinión', href: '/categoria/opinion' },
+];
+
+const todayFormatted = new Intl.DateTimeFormat('es-MX', {
+  weekday: 'long',
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+}).format(new Date());
+
+const displayDate = todayFormatted.charAt(0).toUpperCase() + todayFormatted.slice(1);
+---
+
+<header class="site-header">
+  <!-- Top Utility Bar -->
+  <div class="top-utility-bar">
+    <div class="container-editorial top-utility-inner">
+      <div class="date-edition">
+        <span class="live-pulse-dot" aria-hidden="true"></span>
+        <time datetime={new Date().toISOString()}>{displayDate}</time>
+        <span class="edition-divider">|</span>
+        <span class="edition-tag">Villahermosa, Tabasco · Edición Digital</span>
+      </div>
+      <a
+        href="https://central.neuronamedios.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="admin-access-link"
+      >
+        Sala de Redacción →
+      </a>
+    </div>
+  </div>
+
+  <!-- Main Brand Masthead -->
+  <div class="masthead container-editorial">
+    <div class="masthead-side masthead-left">
+      <div class="weather-ticker">
+        <span class="ticker-label">COBERTURA TABASCO</span>
+        <span class="ticker-val">Las noticias más importantes de la capital tabasqueña</span>
+      </div>
+    </div>
+
+    <div class="masthead-center">
+      <a href="/" class="brand-logo-link" aria-label="Noticias Villahermosa - Ir a Portada">
+        <img
+          src="/logo.png"
+          alt="Noticias Villahermosa"
+          class="brand-logo-img"
+          width="600"
+          height="145"
+          fetchpriority="high"
+        />
+      </a>
+    </div>
+
+    <div class="masthead-side masthead-right">
+      <button
+        type="button"
+        id="open-search-btn"
+        class="search-trigger-btn"
+        aria-label="Buscar noticias"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <span class="search-btn-text">Buscar</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile-First Swipeable Section Navigation Bar -->
+  <nav class="nav-sections-bar" aria-label="Secciones principales">
+    <div class="container-editorial nav-sections-inner">
+      <ul class="nav-list">
+        {categories.map((cat) => {
+          const isActive =
+            currentCategory.toLowerCase() === cat.name.toLowerCase();
+          return (
+            <li class="nav-item">
+              <a
+                href={cat.href}
+                class:list={['nav-link', { 'is-active': isActive }]}
+                aria-current={isActive ? 'page' : undefined}
+              >
+                {cat.name}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<!-- Native HTML <dialog> Search Modal -->
+<dialog id="search-dialog" class="search-modal" aria-labelledby="search-modal-title">
+  <div class="search-modal-box">
+    <div class="search-modal-header">
+      <h2 id="search-modal-title" class="search-modal-heading">Buscar en Noticias Villahermosa</h2>
+      <button type="button" id="close-search-btn" class="search-close-btn" aria-label="Cerrar buscador">
+        ✕
+      </button>
+    </div>
+    <div class="search-input-wrap">
+      <input
+        type="search"
+        id="editorial-search-input"
+        placeholder="Escribe un tema, colonia, personaje o palabra clave..."
+        autocomplete="off"
+      />
+    </div>
+    <div id="search-results-list" class="search-results-container">
+      <p class="search-hint">Escribe al menos 2 letras para filtrar noticias al instante.</p>
+    </div>
+  </div>
+</dialog>
+
+<style>
+  .site-header {
+    background-color: var(--color-qroo-paper);
+    border-bottom: 1px solid var(--color-qroo-border);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    box-shadow: 0 2px 12px rgba(15, 23, 42, 0.04);
+  }
+
+  /* Top Utility Bar */
+  .top-utility-bar {
+    background-color: var(--color-qroo-navy);
+    color: #e2e8f0;
+    font-size: 0.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .top-utility-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+  }
+
+  .date-edition {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+  }
+
+  .live-pulse-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--color-qroo-cyan);
+    box-shadow: 0 0 0 0 rgba(206, 44, 157, 0.7);
+    animation: livePulse 2s infinite;
+  }
+
+  @keyframes livePulse {
+    0% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(206, 44, 157, 0.7);
+    }
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 6px rgba(206, 44, 157, 0);
+    }
+    100% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(206, 44, 157, 0);
+    }
+  }
+
+  .edition-divider {
+    color: rgba(255, 255, 255, 0.25);
+  }
+
+  .edition-tag {
+    color: #cbd5e1;
+  }
+
+  .admin-access-link {
+    color: #e2e8f0;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.72rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: background 0.15s ease;
+  }
+
+  .admin-access-link:hover {
+    background: var(--color-qroo-cyan);
+    color: #ffffff;
+  }
+
+  /* Masthead */
+  .masthead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0.85rem;
+    padding-bottom: 0.85rem;
+    gap: 1rem;
+  }
+
+  .masthead-side {
+    flex: 1;
+    display: none;
+  }
+
+  @media (min-width: 900px) {
+    .masthead-side {
+      display: flex;
+    }
+  }
+
+  .masthead-left {
+    justify-content: flex-start;
+  }
+
+  .masthead-right {
+    justify-content: flex-end;
+  }
+
+  .weather-ticker {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .ticker-label {
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: var(--color-qroo-cyan);
+    text-transform: uppercase;
+  }
+
+  .ticker-val {
+    font-size: 0.8rem;
+    color: var(--color-qroo-slate);
+    font-weight: 500;
+    max-width: 260px;
+    line-height: 1.25;
+  }
+
+  .masthead-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .brand-logo-link {
+    display: inline-block;
+    line-height: 0;
+  }
+
+  .brand-logo-img {
+    height: 52px;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.2s ease;
+  }
+
+  @media (min-width: 768px) {
+    .brand-logo-img {
+      height: 64px;
+    }
+  }
+
+  .brand-logo-link:hover .brand-logo-img {
+    transform: scale(1.02);
+  }
+
+  .search-trigger-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: var(--color-qroo-mist);
+    border: 1px solid var(--color-qroo-border);
+    padding: 0.45rem 0.85rem;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--color-qroo-slate);
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+  .search-trigger-btn:hover {
+    border-color: var(--color-qroo-cyan);
+    color: var(--color-qroo-cyan);
+    background: #ffffff;
+  }
+
+  /* Swipeable Section Navigation */
+  .nav-sections-bar {
+    background-color: #ffffff;
+    border-top: 1px solid var(--color-qroo-border);
+  }
+
+  .nav-sections-inner {
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .nav-sections-inner::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-list {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+  }
+
+  @media (min-width: 768px) {
+    .nav-list {
+      justify-content: center;
+      gap: 1.15rem;
+    }
+  }
+
+  .nav-link {
+    display: inline-block;
+    padding: 0.65rem 0.85rem;
+    font-size: 0.82rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-qroo-slate);
+    border-bottom: 3px solid transparent;
+    transition: all 0.15s ease;
+  }
+
+  .nav-link:hover {
+    color: var(--color-qroo-cyan);
+  }
+
+  .nav-link.is-active {
+    color: var(--color-qroo-navy);
+    border-bottom-color: var(--color-qroo-cyan);
+  }
+
+  /* Native Search Dialog */
+  .search-modal {
+    width: min(92vw, 600px);
+    border: none;
+    border-radius: 8px;
+    padding: 0;
+    background: var(--color-qroo-paper);
+    box-shadow: 0 20px 45px rgba(15, 23, 42, 0.25);
+  }
+
+  .search-modal::backdrop {
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(3px);
+  }
+
+  .search-modal-box {
+    padding: 1.5rem;
+  }
+
+  .search-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+
+  .search-modal-heading {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--color-qroo-navy);
+  }
+
+  .search-close-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--color-qroo-slate);
+    padding: 0.25rem 0.5rem;
+  }
+
+  .search-input-wrap input {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    border: 2px solid var(--color-qroo-border-strong);
+    border-radius: 6px;
+    outline: none;
+  }
+
+  .search-input-wrap input:focus {
+    border-color: var(--color-qroo-cyan);
+  }
+
+  .search-results-container {
+    margin-top: 1rem;
+    max-height: 340px;
+    overflow-y: auto;
+  }
+
+  .search-hint {
+    font-size: 0.875rem;
+    color: var(--color-qroo-slate);
+    margin: 0.5rem 0;
+  }
+
+  :global(.search-result-item) {
+    display: block;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--color-qroo-border);
+    text-decoration: none;
+  }
+
+  :global(.search-result-item:hover .search-result-title) {
+    color: var(--color-qroo-cyan);
+  }
+
+  :global(.search-result-cat) {
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--color-qroo-cyan);
+    display: block;
+  }
+
+  :global(.search-result-title) {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-qroo-navy);
+    margin: 0.15rem 0 0 0;
+  }
+</style>
+
+<script>
+  const dialog = document.getElementById('search-dialog') as HTMLDialogElement | null;
+  const openBtn = document.getElementById('open-search-btn');
+  const closeBtn = document.getElementById('close-search-btn');
+  const input = document.getElementById('editorial-search-input') as HTMLInputElement | null;
+  const resultsContainer = document.getElementById('search-results-list');
+
+  let cachedArticles: Array<{ title: string; slug: string; category: string; excerpt: string }> | null = null;
+
+  openBtn?.addEventListener('click', async () => {
+    dialog?.showModal();
+    input?.focus();
+    if (!cachedArticles) {
+      try {
+        const res = await fetch('/api/search.json');
+        if (res.ok) cachedArticles = await res.json();
+      } catch {
+        cachedArticles = [];
+      }
+    }
+  });
+
+  closeBtn?.addEventListener('click', () => dialog?.close());
+
+  dialog?.addEventListener('click', (e) => {
+    if (e.target === dialog) dialog.close();
+  });
+
+  input?.addEventListener('input', () => {
+    const q = input.value.trim().toLowerCase();
+    if (!resultsContainer) return;
+
+    if (q.length < 2) {
+      resultsContainer.innerHTML = '<p class="search-hint">Escribe al menos 2 letras para filtrar noticias al instante.</p>';
+      return;
+    }
+
+    const matches = (cachedArticles || []).filter(
+      (a) =>
+        a.title.toLowerCase().includes(q) ||
+        (a.excerpt || '').toLowerCase().includes(q) ||
+        a.category.toLowerCase().includes(q)
+    );
+
+    if (matches.length === 0) {
+      resultsContainer.innerHTML = '<p class="search-hint">No se encontraron noticias con ese término.</p>';
+      return;
+    }
+
+    resultsContainer.innerHTML = matches
+      .map(
+        (m) => `
+        <a href="/noticias/${m.slug}" class="search-result-item">
+          <span class="search-result-cat">${m.category}</span>
+          <p class="search-result-title">${m.title}</p>
+        </a>
+      `
+      )
+      .join('');
+  });
+</script>
